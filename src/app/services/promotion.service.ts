@@ -12,7 +12,7 @@ export class PromotionService {
   constructor() { }
 
   getPromotions(): Observable<Promotion[]> {
-    return of(PROMOTIONS)s.pipe(delay(2000));
+    return of(PROMOTIONS).pipe(delay(2000));
   }
 
   getPromotion(id: string): Observable<Promotion> {
