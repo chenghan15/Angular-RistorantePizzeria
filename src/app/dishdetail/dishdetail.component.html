@@ -51,7 +51,7 @@
   </div>  
 
   <div fxFlex fxFlexOffset="20px" class="form-size">
-    <p>{{ dishCommentForm.value | json }} {{ dishCommentForm.status | json }}</p>
+    <p [hidden]="dishCommentForm.invalid">{{ dishCommentForm.value | json }} {{ dishCommentForm.status | json }}</p>
     <form novalidate [formGroup]="dishCommentForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
@@ -61,7 +61,6 @@
       </p>
       <p>
         <mat-slider thumbLabel tickInterval="1" formControlName="rating" min="1" max="5" step="1" value="5"></mat-slider>
-        <!-- <mat-error *ngIf="formErrors.rating">{{formErrors.rating}}</mat-error> -->
       </p>
       <p>        
         <mat-form-field class="full-width">
