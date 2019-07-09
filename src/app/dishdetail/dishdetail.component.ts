@@ -27,16 +27,11 @@ export class DishdetailComponent implements OnInit {
   @ViewChild('fform') dishCommentFormDirective;
 
   formErrors = {
-    // 'rating': 5,
     'comment': '',
     'author': ''
-    // 'date': ''
   };  
 
   validationMessages = {
-    // 'rating': {
-    //   'required':      'rating is required.',
-    // },
     'comment': {
       'required':      'comment is required.',
       'minlength':     'comment must be at least 2 characters long.',
@@ -76,10 +71,9 @@ export class DishdetailComponent implements OnInit {
     createForm(){
       this.dishCommentForm = this.fb.group(
         {
-          rating: '',
+          rating: 5,
           comment: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]],
           author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-          // date: '' 
         }
       );
 
@@ -109,19 +103,18 @@ export class DishdetailComponent implements OnInit {
         }
       }
     }
-  
+
 
     onSubmit(){
       this.dishComment = this.dishCommentForm.value;
       // this.dishComment.date = '';
 
       console.log(this.dishComment);
-      this.dishCommentForm.reset({
-        rating: 5,
-        comment: '',
-        author: ''
-      });
       
       this.dishCommentFormDirective.resetForm();
+
+      this.dishCommentForm.reset({
+        rating: 5
+      });      
     }
 }

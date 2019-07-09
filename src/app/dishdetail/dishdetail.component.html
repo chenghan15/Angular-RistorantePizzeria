@@ -51,6 +51,7 @@
   </div>  
 
   <div fxFlex fxFlexOffset="20px" class="form-size">
+    <p>{{ dishCommentForm.value | json }} {{ dishCommentForm.status | json }}</p>
     <form novalidate [formGroup]="dishCommentForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
