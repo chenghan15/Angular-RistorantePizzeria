@@ -23,6 +23,7 @@ export class ContactComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedback: Feedback;
+  feedbackResponse: Feedback;
   contactType = ContactType;
   @ViewChild('fform') feedbackFormDirective;
 
@@ -107,15 +108,15 @@ export class ContactComponent implements OnInit {
 
     this.feedbackService.submitFeedback(this.feedback)
     .subscribe(feedback => {
-      // this.feedback = feedback; this.feedbackcopy = feedback;
+      this.feedback = null; this.feedbackResponse = feedback;
     },
     errmess => { 
-      // this.feedback = null; 
-      // this.feedbackcopy = null; 
+      this.feedback = null; 
+      this.feedbackResponse = null; 
       this.errMess = <any>errmess; 
     });
 
-    console.log(this.feedback);
+    console.log(this.feedbackResponse);
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
