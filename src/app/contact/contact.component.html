@@ -86,5 +86,20 @@
         <mat-spinner></mat-spinner><h4>Submitting Form . . . Please Wait</h4>
       </div> 
 
+      <div *ngIf="feedbackResponse">
+        <h2>Your Submission</h2>
+        <p>First Name: {{feedbackResponse.firstname}}</p>
+        <p>Last Name: {{feedbackResponse.lastname}}</p>
+        <p>Tel. Number: {{feedbackResponse.telnum}}</p>
+        <p>Email: {{feedbackResponse.email}}</p>
+        <p>Contact: {{feedbackResponse.agree}}</p>
+        <p>How?: {{feedbackResponse.contacttype}}</p>
+        <p>Feedbacks: {{feedbackResponse.message}}</p>
+      </div>       
+
+      <div fxFlex *ngIf="errMess">
+        <h2>Error</h2>
+        <h4>{{errMess}}</h4>
+      </div>        
     </div>
 </div>

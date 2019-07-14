@@ -22,6 +22,5 @@ export class FeedbackService {
     };
     return this.http.post<Feedback>(baseURL + 'feedback', feedback, httpOptions)
       .pipe(catchError(this.processHTTPMsgService.handleError));
-
   }  
 }
